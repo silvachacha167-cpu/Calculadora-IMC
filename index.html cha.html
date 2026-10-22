@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitMetrics™ Executive - Calculadora de IMC</title>
+    <!-- Google Fonts Inter & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-card">
+      <!-- HEADER DA MARCA COM LOGO -->
+      <header class="brand-header">
+        <div class="logo-box">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <div class="brand-info">
+          <h1>FitMetrics <span class="badge-pro">ULTRA</span></h1>
+          <p>Health Analytics & Biometrics</p>
+        </div>
+      </header>
+
+      <!-- FORMULÁRIO DE ENTRADA -->
+      <form
+        id="imcForm"
+        onsubmit="
+          event.preventDefault();
+          calcularIMC();
+        "
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peso">Peso (kg)</label>
+            <div class="input-box">
+              <i class="fa-solid fa-weight-scale"></i>
+              <input
+                type="number"
+                id="peso"
+                step="0.1"
+                min="0"
+                placeholder="Ex: 75.0"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="altura">Altura (m)</label>
+            <div class="input-box">
+              <i class="fa-solid fa-ruler-vertical"></i>
+              <input
+                type="number"
+                id="altura"
+                step="0.01"
+                min="0"
+                placeholder="Ex: 1.75"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          <i class="fa-solid fa-bolt"></i> Calcular Biometria
+        </button>
+      </form>
+
+      <!-- PAINEL RESERVADO DE RESULTADOS -->
+      <div id="result-area"></div>
+
+      <!-- TABELA OMS DE EXPANSÃO -->
+      <div class="reference-box">
+        <details>
+          <summary>
+            <i class="fa-solid fa-chart-line"></i> Escala de Referência da OMS
+          </summary>
+          <div class="table-grid">
+            <div class="table-card blue">
+              <span>&lt; 18.5</span> <span>Abaixo do Peso</span>
+            </div>
+            <div class="table-card green">
+              <span>18.5 – 24.9</span> <span>Peso Normal</span>
+            </div>
+            <div class="table-card yellow">
+              <span>25.0 – 29.9</span> <span>Sobrepeso</span>
+            </div>
+            <div class="table-card red">
+              <span>&ge; 30.0</span> <span>Obesidade</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <!-- RODAPÉ OBRIGATÓRIO -->
+    <footer>Desenvolvido por: <strong>Charliane Silva Oliveira</strong></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
